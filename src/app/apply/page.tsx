@@ -31,9 +31,17 @@ export default function ApplyPage() {
       {/* 포스터 카드 */}
       <section className="px-4 pt-3">
         <div className="overflow-hidden rounded-[22px] border border-white/10 bg-gradient-to-b from-neutral-900 to-black p-3 shadow-[0_10px_0_#1b1b1b]">
-          {/* 스크린샷처럼 포스터 한 장 꽉 차게 */}
-          <div className="relative aspect-[3/5] min-h-[880px] w-full overflow-hidden rounded-2xl">
-            <Image src="/run.png" alt="불꽃달림단 행사 안내" fill className="object-cover" priority />
+          {/* 반응형: 모바일은 contain, md 이상 cover 유지 */}
+          <div className="relative w-full overflow-hidden rounded-2xl bg-black/40">
+            <div className="relative aspect-[3/5] sm:aspect-[3/5] w-full min-h-[560px] sm:min-h-[760px] md:min-h-[880px] flex items-center justify-center p-2 sm:p-3">
+              <Image
+                src="/run.png"
+                alt="불꽃달림단 행사 안내"
+                fill
+                className="object-contain md:object-cover transition-all duration-300"
+                priority
+              />
+            </div>
           </div>
         </div>
       </section>
