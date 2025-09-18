@@ -1,15 +1,16 @@
 // app/page.tsx
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useForm, ValidationError } from "@formspree/react";
 
 const ASSETS = {
   logo: "/logo-bulggot.png",
   insta: "/icon-instagram.png",
   crew: "/c_all.png",
-  poster: "/event-poster.png",
+  poster: "/event-poster.png", // 포스터 이미지
 };
 
 export default function Home() {
@@ -55,12 +56,12 @@ export default function Home() {
           {/* CTA 버튼 (입체감) */}
           <div className="relative mt-5 inline-block">
             <span className="pointer-events-none absolute inset-0 translate-y-[6px] rounded-xl bg-black/40" />
-            <Link
-              href="#contents"
+            <a
+              href="#event"
               className="relative inline-flex items-center justify-center rounded-xl bg-black px-4 py-3 text-[13px] font-semibold text-white"
             >
               불꽃살림단 스토리 보러가기 →
-            </Link>
+            </a>
           </div>
         </div>
 
@@ -98,8 +99,7 @@ export default function Home() {
       </section>
 
       {/* ---------- CONTENT HUB ---------- */}
-      <section id="contents">
-      <section className="px-5 pb-24 pt-2">
+      <section id="contents" className="px-5 pb-24 pt-2">
         <div className="text-[11px] text-white/50">| 불꽃살림단 콘텐츠 확인하기</div>
         <h3 className="mt-2 text-[22px] font-extrabold">
           불꽃살림단 <span className="font-medium">콘텐츠를 확인해보세요!</span>
@@ -111,7 +111,7 @@ export default function Home() {
           <HubCard title="카톡채널 바로가기" href="https://pf.kakao.com/_xoTEDn" />
           <EmptyCard />
         </div>
-</section>
+
         {/* 푸터 */}
         <div className="mt-14 rounded-2xl border border-white/10 bg-white/5 px-4 py-6 text-center text-[11px] text-white/70">
           <div className="font-extrabold tracking-widest">불꽃살림단</div>
@@ -143,9 +143,10 @@ function EventCard() {
 
         {/* 좌상단 라벨 박스 */}
         <div className="absolute left-3 top-3 rounded-lg bg-black/65 px-2 py-1 text-[10px] leading-tight">
-
+          <div>날씨 | 2025.09.20</div>
+          <div>시작 | 오전 10시</div>
+          <div>난이도 | ★★☆ (약 3.0km)</div>
         </div>
-
       </div>
 
       {/* 세부 정보 */}
@@ -158,7 +159,16 @@ function EventCard() {
           ※ 불참/지각/안전 수칙 위반 시 선발 취소될 수 있습니다.
         </p>
 
-    {/* 참가 입력 폼 */}
+        {/* ===== 신청 버튼 ===== */}
+<div className="relative pt-2">
+  <span className="pointer-events-none absolute inset-0 translate-y-[8px] rounded-xl bg-[#7a1130]" />
+  <Link
+    href="/apply"
+    className="relative block w-full rounded-xl bg-[#FF2B6B] py-3 text-center text-[14px] font-extrabold text-white"
+  >
+    불꽃달림단 신청하러 가기
+  </Link>
+</div>
       </div>
     </div>
   );
@@ -197,8 +207,6 @@ function HubCard({ title, href }: { title: string; href: string }) {
       <div className="mx-auto h-12 w-12 rounded-xl bg-white/10" />
       <div className="mt-3 text-sm font-semibold">{title}</div>
       <div className="text-[11px] text-white/50">바로가기</div>
-
-      {/* 입체 하단 그림자 */}
       <span className="pointer-events-none absolute inset-0 translate-y-[8px] rounded-2xl bg-black/40" />
     </Link>
   );
