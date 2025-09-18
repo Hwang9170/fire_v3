@@ -127,7 +127,7 @@ export default function Home() {
 function EventCard() {
   const meta = {
     date: "2025년 9월 20일 (토) 오전 10시",
-    course: "후암동 · 중무릎 · 녹사평 출발 → 남산타워 도착",
+    course: "후암동 · 충무로 · 녹사평 출발 → 남산타워 도착",
     quota: "남자 30명 / 여자 30명",
   };
 
