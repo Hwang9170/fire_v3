@@ -85,7 +85,7 @@ export default function ApplyPage() {
                         type="button"
                         onClick={() => setGender(g)}
                         aria-pressed={active}
-                        className={`seg-gender group relative flex items-center justify-center rounded-3xl px-5 py-3.5 text-[13px] font-bold tracking-tight transition
+                        className={`seg-gender group relative flex items-center justify-center rounded-3xl px-5 py-3.5 text-[17px] font-bold tracking-tight transition
                           ${active ? 'bg-[#F6E8ED] text-[#C32058] shadow-[0_0_0_2px_#C32058] border border-[#C32058]' : 'bg-[#F6E8ED]/60 text-[#8A5F6F] border border-transparent hover:bg-[#F6E8ED]/70'}`}
                       >
                         <span className="whitespace-nowrap pr-5">{g}</span>
