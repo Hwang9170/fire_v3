@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Create Next App",
+  title: "불꽃 살림단 /fireworks_seoul",
   description: "불꽃 살림단 /fireworks_seoul ",
 };
 
