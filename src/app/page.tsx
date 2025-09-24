@@ -92,10 +92,21 @@ export default function Home() {
       <section id="event" className="px-5 pb-8 pt-8">
         <div className="text-[11px] text-white/50">| 불꽃살림단 플로깅 프로젝트</div>
         <h2 className="mt-2 text-[22px] font-extrabold">
-          불꽃달림단 <span className="font-medium">남산편 단원을 모집합니다!</span>
+          불꽃달림단 <span className="font-medium"> 단원을 모집합니다!</span>
         </h2>
 
-        <EventCard />
+        {/* 포스터 이미지 */}
+        <div className="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+          <Image
+            src={ASSETS.poster}
+            alt="이벤트 포스터"
+            width={800}
+            height={1132}
+            className="h-auto w-full object-cover"
+            priority
+          />
+        </div>
+
       </section>
 
       {/* ---------- CONTENT HUB ---------- */}
@@ -123,56 +134,7 @@ export default function Home() {
 }
 
 /* ==================== Components ==================== */
-
-function EventCard() {
-  const meta = {
-    date: "2025년 9월 20일 (토) 오전 10시",
-    course: "후암동 · 충무로 · 녹사평 출발 → 남산타워 도착",
-    quota: "남자 30명 / 여자 30명",
-  };
-
-  return (
-    <div className="mt-4 overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-[0_8px_0_#1d1d1d]">
-      {/* 포스터 */}
-      <div className="relative aspect-[16/10] w-full">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${ASSETS.poster})` }}
-        />
-        <div className="absolute inset-0 bg-black/40" />
-
-        {/* 좌상단 라벨 박스 */}
-        <div className="absolute left-3 top-3 rounded-lg bg-black/65 px-2 py-1 text-[10px] leading-tight">
-          <div>날씨 | 2025.09.20</div>
-          <div>시작 | 오전 10시</div>
-          <div>난이도 | ★★☆ (약 3.0km)</div>
-        </div>
-      </div>
-
-      {/* 세부 정보 */}
-      <div className="space-y-3 px-4 py-4">
-        <InfoRow label="일시" value={meta.date} />
-        <InfoRow label="코스" value={meta.course} />
-        <InfoRow label="모집인원" value={meta.quota} desc="(선발 후 개별 안내)" />
-
-        <p className="pt-1 text-[11px] text-white/60">
-          ※ 불참/지각/안전 수칙 위반 시 선발 취소될 수 있습니다.
-        </p>
-
-        {/* ===== 신청 버튼 ===== */}
-<div className="relative pt-2">
-  <span className="pointer-events-none absolute inset-0 translate-y-[8px] rounded-xl bg-[#7a1130]" />
-  <Link
-    href="/apply"
-    className="relative block w-full rounded-xl bg-[#FF2B6B] py-3 text-center text-[14px] font-extrabold text-white"
-  >
-    불꽃달림단 신청하러 가기
-  </Link>
-</div>
-      </div>
-    </div>
-  );
-}
+// (컴포넌트 정의 영역)
 
 
 function InfoRow({
